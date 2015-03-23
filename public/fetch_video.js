@@ -18,8 +18,16 @@ $(document).ready(function() {
 
   function ajaxCall() {
     
-    // your code will go here
+    var $input = $('#text-field').val();
 
+    $.ajax({
+      method: "GET",
+      url: "/widget",
+      data: {search_keyword: $input}
+    })
+      .done(function(response) {
+        $("#search-results").html(response);
+      });
   }
 
 });
